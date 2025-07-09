@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: dotnet-api
+    runtime: dotnet
+    region: singapore
+    plan: free
+    buildCommand: "dotnet publish test/test.csproj -c Release -o out"
+    startCommand: "dotnet out/test.dll"
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
